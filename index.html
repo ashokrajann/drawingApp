@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- P5.js library scripts -->
+    <script src="lib/p5.min.js"></script>
+    <script src="sketch.js"></script>
+
+    <!-- Helper scripts -->
+    <script src="toolbox.js"></script>
+    <script src="colourPalette.js"></script>
+    <script src="helperFunctions.js"></script>
+    <script src="canvasLayers.js"></script>
+
+    <!-- Drawing tool scripts -->
+    <script src="freehandTool.js"></script>
+    <script src="lineToTool.js"></script>
+    <script src="shapeTool.js"></script>
+    <script src="sprayCanTool.js"></script>
+    <script src="mirrorDrawTool.js"></script>
+    <script src="stampTool.js"></script>
+    <script src="scissorTool.js"></script>
+    <script src="textTool.js"></script>
+
+    <!-- CSS styles -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body>
+    <div id="drawing-app">
+      <!-- Top bar comprises of the Tools and Helper actions -->
+      <div id="header">
+        <div id="toolBar"></div>
+        <div id="helpers">
+          <div id="clearButton" class="click-button">Clear</div>
+          <div id="saveImageButton" class="click-button">Download</div>
+        </div>
+      </div>
+
+      <!-- Drawing Area comprises of the canvas -->
+      <div id="drawArea">
+        <div id="canvasContainer"></div>
+      </div>
+
+      <!-- Drawing Area comprises of Canvas size, Tool properties and Layers -->
+      <div id="sideBar" class="sideBar">
+        <!-- Tool properties -->
+        <div id="properties" class="sideBar-section">
+          <p class="section-title">Properties</p>
+          <div id="colorPalette">
+            <label for="fillColor" class="property-label">Fill</label>
+            <input type="color" id="fillColor" name="fillColor" />
+            <label for="strokeColor" class="property-label">Stroke</label>
+            <input type="color" id="strokeColor" />
+          </div>
+          <div id="toolOptions"></div>
+        </div>
+
+        <!-- Canvas Layers -->
+        <div id="layers" class="sideBar-section">
+          <div id="layers-title-bar">
+            <p class="section-title">Layers</p>
+            <img
+              id="add-layer"
+              class="prop-square-btn"
+              src="assets/properties/add.svg"
+              alt="add layer icon"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

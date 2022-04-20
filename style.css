@@ -1,0 +1,302 @@
+/*****************************************
+Base styles 
+*****************************************/
+
+html,
+body {
+  margin: 0px;
+  height: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#drawing-app {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 280px;
+  grid-auto-rows: 64px 1fr;
+  grid-template-areas:
+    "header header sideBar"
+    "drawArea drawArea sideBar";
+  background-color: #1c1b26;
+  color: #f3f3ff;
+}
+
+/*****************************************
+Header (Toolbar + Helpers) styles 
+*****************************************/
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-area: header;
+  padding: 20px;
+  background-color: #1c1b26;
+  z-index: 10;
+}
+
+#toolBar {
+  display: flex;
+  align-items: center;
+}
+
+#optionsBar {
+  display: flex;
+  flex-direction: column;
+}
+
+.toolBarItem {
+  border-radius: 12px;
+}
+
+.toolBarItem.active {
+  background-color: #4368f6;
+}
+
+.toolBarItem img {
+  width: 28px;
+  height: 28px;
+  padding: 12px;
+}
+
+#helpers {
+  display: flex;
+  align-items: center;
+}
+
+/*****************************************
+Draw Area styles 
+*****************************************/
+
+#drawArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: drawArea;
+  overflow: auto;
+}
+
+#canvasContainer {
+  position: relative;
+}
+
+/*****************************************
+Sidebar styles 
+*****************************************/
+
+#sideBar {
+  grid-area: sideBar;
+  background-color: #242736;
+  padding: 16px;
+  overflow-y: scroll;
+  z-index: 10;
+}
+
+.sideBar-section {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #575787;
+}
+
+.section-title {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: 20px 0px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+#colorPalette {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.property-label {
+  font-size: 14px;
+  opacity: 0.5;
+  margin-right: 20px;
+}
+
+#strokeColor,
+#fillColor {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#strokeColor::-webkit-color-swatch-wrapper,
+#fillColor::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+#strokeColor::-webkit-color-swatch,
+#fillColor::-webkit-color-swatch-wrapper {
+  border: none;
+}
+
+/*****************************************
+Tool options styles 
+*****************************************/
+
+#mirror-container,
+#text-size-container,
+#text-style-container,
+#shape-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#text-size-container div,
+#text-style-container div,
+#shape-container div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+#stamps-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 4px;
+  padding: 20px 0px;
+}
+
+#slider-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.slider-input {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  width: 100%;
+  padding: 10px 0px;
+}
+
+.slider-input .property-label {
+  text-transform: capitalize;
+}
+
+.slider-value {
+  text-align: center;
+}
+
+#text-fonts-container {
+  color: #f3f3ff;
+  background-color: #1c1b26;
+  border: none;
+  font-size: 18px;
+  padding: 12px 8px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/*****************************************
+Canvas Layers styles 
+*****************************************/
+
+#layers-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.layer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.layer-name {
+  margin: 0;
+  background-color: #1c1b26;
+  padding: 12px 8px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.layer-name:hover {
+  cursor: pointer;
+  background-color: #505770;
+}
+
+.layer-name.active {
+  border-left: 8px solid #4368f6;
+  background-color: #505770;
+}
+
+.delete-icon,
+#lock-icon {
+  margin-left: 10px;
+}
+
+#lock-icon {
+  opacity: 0.5;
+}
+
+/*****************************************
+Buttons styles 
+*****************************************/
+
+#clearButton,
+#saveImageButton,
+#directionButton {
+  text-align: center;
+  padding: 12px 16px;
+  color: #f3f3ff;
+  border-radius: 4px;
+  border: 2px solid #575787;
+}
+
+.click-button,
+.toolBarItem {
+  cursor: pointer;
+}
+
+#clearButton {
+  border: 2px solid #575787;
+  margin-right: 16px;
+}
+
+#directionButton {
+  background-color: #4368f6;
+  width: 160px;
+}
+
+#clearButton:hover {
+  background-color: #fe575b;
+  border: none;
+}
+
+#saveImageButton:hover,
+#directionButton:hover {
+  cursor: pointer;
+  background-color: rgb(56, 84, 194);
+  border: none;
+}
+
+.prop-square-btn {
+  padding: 4px;
+  background-color: #171c31;
+  border-radius: 8px;
+  margin-right: 4px;
+}
+
+.prop-square-btn:hover {
+  cursor: pointer;
+  background-color: #242a42;
+}
+
+.prop-square-btn.active,
+.prop-square-btn.active:hover {
+  background-color: #505770;
+}
